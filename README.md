@@ -11,6 +11,8 @@ This project is for Educational Use only. I do not condone this software being u
 - Method = Init
 ### Second way
 Inject 0Harmony.dll and TE2ModMenu.dll using my [ModLoader](https://github.com/Sacracia/ModLoader)
+### In-game
+Back quote to show / hide menu.
 ## Mod options / Screenshot
 <p align="center">
    <img src="screenshot.png">
