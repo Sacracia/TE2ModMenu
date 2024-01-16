@@ -1,7 +1,7 @@
 # TE2ModMenu
 TE2ModMenu is a Cheat Menu for The Escapists 2.
-## Disclaimer
-This project is for Educational Use only. I do not condone this software being used to gain an advantage against other people. This mod was made for my university project.
+> [!IMPORTANT]\
+> This project is for Educational Use only. I do not condone this software being used to gain an advantage against other people. This mod was made for my university project.
 ## Usage
 ### First way
 1. Add 0Harmony.dll to \TheEscapists2\TheEscapists2_Data\Managed folder of the game.
@@ -11,12 +11,13 @@ This project is for Educational Use only. I do not condone this software being u
 - Method = Init
 ### Second way
 Inject 0Harmony.dll and TE2ModMenu.dll using my [ModLoader](https://github.com/Sacracia/ModLoader)
-### In-game
-Back quote to show / hide menu.
 ## Mod options / Screenshot
 <p align="center">
    <img src="screenshot.png">
 </p>
+
+> [!TIP]\
+> Press Backquote to show / hide the menu
 
 Online unsupported options:
 - No missing routine penalty
@@ -26,7 +27,7 @@ Online unsupported options:
 - Calm dogs
 - Invisible
 
-Notices:
+ACHTUNG:
 - Change FOV doesnt influence draw distance
 - No missing routine penalty works except for roll call
 - -Alertness doest work during isolation

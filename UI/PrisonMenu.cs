@@ -7,7 +7,7 @@ namespace TE2ModMenu
 {
     internal class PrisonMenu : MonoBehaviour
     {
-        internal static bool visible = true;
+        internal bool visible = true;
         private bool _detectorActive = false;
         private bool _checkMissingKey = false;
         private bool _freezeTimer = false;
@@ -16,7 +16,16 @@ namespace TE2ModMenu
         private bool _noAlertnessPenalties = false;
         private Rect window = new Rect(270f, 10f, 250f, 400f);
 
-        public void OnGUI()
+        private static PrisonMenu s_instance;
+
+        public static PrisonMenu Instance
+        {
+            get => s_instance;
+        }
+
+        void Awake() => s_instance = this;
+
+        void OnGUI()
         {
             if (!visible)
                 return;
@@ -168,13 +177,13 @@ namespace TE2ModMenu
 
             if (GUILayout.Button("Apply for a job >>", new GUILayoutOption[0]))
             {
-                JobMenu.visible = !JobMenu.visible;
-                JobMenu.window.x = window.x + 260f;
-                JobMenu.window.y = window.y + 310f;
+                JobMenu.Instance.visible = !JobMenu.Instance.visible;
+                JobMenu.Instance.window.x = window.x + 260f;
+                JobMenu.Instance.window.y = window.y + 310f;
             }
         }
 
-        public void Update()
+        void Update()
         {
             if (Input.GetKeyDown(KeyCode.BackQuote))
             {

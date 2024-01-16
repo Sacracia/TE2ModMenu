@@ -6,14 +6,23 @@ namespace TE2ModMenu
 {
     internal class JobMenu : MonoBehaviour
     {
-        internal static bool visible = false;
+        internal bool visible = false;
         private List<BaseJob> _jobs;
         private float _lastCacheTime = Time.time + 3f;
-        internal static Rect window = new Rect(300f,300f,150f,300f);
+        internal Rect window = new Rect(300f,300f,150f,300f);
 
-        public void OnGUI()
+        private static JobMenu s_instance;
+
+        public static JobMenu Instance
         {
-            if (!visible || !PrisonMenu.visible)
+            get => s_instance;
+        }
+
+        void Awake() => s_instance = this;
+
+        void OnGUI()
+        {
+            if (!visible || !PrisonMenu.Instance.visible)
                 return;
             window = GUILayout.Window(3, window, OnWindow, "Jobs", new GUILayoutOption[0]);
         }
@@ -39,7 +48,7 @@ namespace TE2ModMenu
             }
         }
 
-        public void Update()
+        void Update()
         {
             if (Time.time >= _lastCacheTime && visible)
             {

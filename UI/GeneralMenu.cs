@@ -20,12 +20,21 @@ namespace TE2ModMenu
         }
 
         internal static RoomInfo room = new RoomInfo();
-        internal static bool visible = true;
+        internal bool visible = true;
         private bool _throPassword = false;
         private bool _antikick = false;
         private Rect window = new Rect(530f, 10f, 400f, 300f);
 
-        public void OnGUI()
+        private static GeneralMenu s_instance;
+
+        public static GeneralMenu Instance
+        {
+            get => s_instance;
+        }
+
+        void Awake() => s_instance = this;
+
+        void OnGUI()
         {
             if (!visible)
                 return;
@@ -105,7 +114,7 @@ namespace TE2ModMenu
             }
         }
 
-        public void Update()
+        void Update()
         {
             if (Input.GetKeyDown(KeyCode.BackQuote))
             {

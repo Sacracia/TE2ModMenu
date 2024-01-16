@@ -10,7 +10,7 @@ namespace TE2ModMenu
         private bool _visible = true;
         private Rect window = new Rect(730f, 320f, 200f, 150f);
 
-        public void OnGUI()
+        void OnGUI()
         {
             if (!_visible)
                 return;
@@ -30,7 +30,7 @@ namespace TE2ModMenu
                     GiveWeapon((int)(Weapon)Enum.Parse(typeof(Weapon), weaponName));
         }
 
-        public void Update()
+        void Update()
         {
             if (Input.GetKeyDown(KeyCode.BackQuote))
                 _visible = !_visible;

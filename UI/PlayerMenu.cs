@@ -21,7 +21,16 @@ namespace TE2ModMenu
         internal static float fov = 1f;
         internal static Player player = null;
 
-        static int Strength
+        private static PlayerMenu s_instance;
+
+        public static PlayerMenu Instance
+        {
+            get => s_instance;
+        }
+
+        void Awake() => s_instance = this;
+
+        int Strength
         {
             get
             {
@@ -37,7 +46,7 @@ namespace TE2ModMenu
             }
         }
 
-        static int Cardio
+        int Cardio
         {
             get
             {
@@ -53,7 +62,7 @@ namespace TE2ModMenu
             }
         }
 
-        static int Intellect
+        int Intellect
         {
             get
             {
@@ -69,7 +78,7 @@ namespace TE2ModMenu
             }
         }
 
-        static float Speed
+        float Speed
         {
             get
             {
@@ -87,7 +96,7 @@ namespace TE2ModMenu
             }
         }
 
-        public void OnGUI()
+        void OnGUI()
         {
             if (!_visible)
                 return;
@@ -100,7 +109,7 @@ namespace TE2ModMenu
             GUI.DragWindow();
         }
 
-        internal void DrawElements()
+        void DrawElements()
         {
             bool flag = GUILayout.Toggle(_godmode, "Godmode", new GUILayoutOption[0]);
             if (flag != _godmode)
@@ -226,7 +235,7 @@ namespace TE2ModMenu
             }
         }
 
-        public void Update()
+        void Update()
         {
             if (Time.time >= _lastCacheTime)
             {
